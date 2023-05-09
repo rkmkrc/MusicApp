@@ -11,7 +11,7 @@ struct Genres: Codable {
     let data: [Genre]?
 }
 
-struct Genre: Codable {
+struct Genre: MyProtocol, Codable {
     let id: Int?
     let name: String?
     let pictureLink: String?
@@ -21,4 +21,10 @@ struct Genre: Codable {
         case pictureLink = "picture_big"
         case id, name, type
     }
+}
+
+protocol MyProtocol {
+    var id: Int? { get }
+    var name: String? { get }
+    var pictureLink: String? { get }
 }

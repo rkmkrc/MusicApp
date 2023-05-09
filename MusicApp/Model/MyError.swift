@@ -8,6 +8,7 @@
 import Foundation
 
 struct MyError {
-    static let UrlError = "Cannot create URL."
-    static let DataError = "Cannot get Data."
+    static let URL_ERROR = "Cannot create URL."
+    static let DATA_ERROR = "Cannot get Data."
+    static let IMAGE_DOWNLOAD_ERROR = "Cannot get image."
 }

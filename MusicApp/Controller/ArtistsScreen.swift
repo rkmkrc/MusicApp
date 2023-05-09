@@ -1,56 +1,58 @@
 //
-//  MainScreen.swift
+//  ArtistsScreen.swift
 //  MusicApp
 //
-//  Created by Erkam Karaca on 8.05.2023.
+//  Created by Erkam Karaca on 9.05.2023.
 //
 
+import Foundation
 import UIKit
 
-class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+class ArtistsScreen: UIViewController, UINavigationControllerDelegate, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
-    @IBOutlet weak var genresCollectionView: UICollectionView!
+    @IBOutlet weak var artistsCollectionView: UICollectionView!
     var urlComponents = URLComponents()
-    var genreList: [Genre]? = [] {
+    var genre: Genre?
+    var artistList: [Artist]? = [] {
         didSet {
-            genresCollectionView.reloadData()
+            artistsCollectionView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.GENRES_TITLE
+        title = genre?.name
         setupCollectionView()
         initializeNetwork()
-        getGenres()
-        navigationController?.delegate = self
+        getArtists()
     }
     
     func setupCollectionView() {
-        genresCollectionView.dataSource = self
-        genresCollectionView.delegate = self
-        genresCollectionView.register(UINib(nibName: "GenresCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GenresCollectionViewCell")
+        artistsCollectionView.dataSource = self
+        artistsCollectionView.delegate = self
+        artistsCollectionView.register(UINib(nibName: "GenresCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GenresCollectionViewCell")
     }
     
     func initializeNetwork() {
+        let genreID = "/" + String(describing: self.genre?.id ?? 0)
         self.urlComponents.scheme = Network.scheme
         self.urlComponents.host = Network.host
-        self.urlComponents.path = Network.genrePath
+        self.urlComponents.path = Network.genrePath + genreID + Network.artistsPath
         print(urlComponents)
     }
     
-    func getGenres() {
+    func getArtists() {
         guard let url = URL(string: urlComponents.url?.absoluteString ?? "") else {
             print(MyError.URL_ERROR)
             return
         }
         
-        fetchData(from: url, expecting: Genres.self) { result in
+        fetchData(from: url, expecting: ArtistCollection.self) { result in
             switch result {
-            case .success(let genres):
+            case .success(let artists):
                 DispatchQueue.main.async {
-                    self.genreList = genres.data
-                    self.genresCollectionView.reloadData()
+                    self.artistList = artists.data
+                    self.artistsCollectionView.reloadData()
                 }
             case .failure(let error):
                 print(MyError.DATA_ERROR + " \(error)")
@@ -59,20 +61,16 @@ class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.genreList?.count ?? Constants.DEFAULT_NUM_OF_CELLS
+        self.artistList?.count ?? Constants.DEFAULT_NUM_OF_CELLS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let genre = genreList?[indexPath.row] {
+        if let artist = artistList?[indexPath.row] {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenresCollectionViewCell", for: indexPath) as! GenresCollectionViewCell
-            cell.setupCell(item: genre)
+            cell.setupCell(item: artist)
             return cell
         }
         return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "genresToArtists", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,24 +79,12 @@ class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         //Amount of total spacing in a row
         let totalSpacing = (2 * Constants.SPACING_FOR_GENRE_CELLS) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
         
-        if let collectionView = self.genresCollectionView{
+        if let collectionView = self.artistsCollectionView{
             //Calculating width value for each row
             let width = (collectionView.bounds.width - totalSpacing)/numberOfItemsPerRow
-            return CGSize(width: width, height: width)
+            return CGSize(width: width, height: width * 1.25)
         }else{
             return CGSize(width: 0, height: 0)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "genresToArtists" {
-            if let indexPaths = genresCollectionView.indexPathsForSelectedItems, let indexPath = indexPaths.first {
-                let selectedGenre = genreList?[indexPath.row]
-                let artistsScreen = segue.destination as! ArtistsScreen
-                artistsScreen.genre = selectedGenre
-            }
-        }
-    }
-    
 }
-

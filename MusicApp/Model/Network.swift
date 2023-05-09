@@ -11,6 +11,7 @@ struct Network {
     static let scheme = "https"
     static let host = "api.deezer.com"
     static let genrePath = "/genre"
+    static let artistsPath = "/artists"
 }
 
 func fetchData<T: Codable>(from url: URL, expecting: T.Type, completionHandler: @escaping (Result<T, Error>) -> Void) {
