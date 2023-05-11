@@ -12,6 +12,7 @@ struct Network {
     static let host = "api.deezer.com"
     static let genrePath = "/genre"
     static let artistsPath = "/artists"
+    static let artistPath = "/artist"
 }
 
 func fetchData<T: Codable>(from url: URL, expecting: T.Type, completionHandler: @escaping (Result<T, Error>) -> Void) {

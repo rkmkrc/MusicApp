@@ -87,4 +87,18 @@ class ArtistsScreen: UIViewController, UINavigationControllerDelegate, UICollect
             return CGSize(width: 0, height: 0)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "artistsToArtistDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "artistsToArtistDetails" {
+            if let indexPaths = artistsCollectionView.indexPathsForSelectedItems, let indexPath = indexPaths.first {
+                let selectedArtist = artistList?[indexPath.row]
+                let artistDetailsScreen = segue.destination as! ArtistDetailsScreen
+                artistDetailsScreen.artist = selectedArtist
+            }
+        }
+    }
 }

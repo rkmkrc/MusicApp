@@ -25,7 +25,7 @@ class GenresCollectionViewCell: UICollectionViewCell {
             case .success(_):
                 break
             case .failure(_):
-                self.genreImageView.image = UIImage(named: "personPlaceholderImage.png")
+                self.genreImageView.image = UIImage(named: "personPlaceholder.png")
                 print(MyError.IMAGE_DOWNLOAD_ERROR)
                 break
             }

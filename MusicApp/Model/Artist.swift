@@ -15,10 +15,12 @@ struct Artist: MyProtocol, Codable {
     let id: Int?
     let name: String?
     let pictureLink: String?
+    let tracklistLink: String?
     let type: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case pictureLink = "picture_big"
+        case tracklistLink = "tracklist"
         case id, name, type
     }
 }
