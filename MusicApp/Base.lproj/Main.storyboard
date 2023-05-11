@@ -191,6 +191,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="5hC-Le-gd9" kind="show" identifier="albumToAlbumDetails" id="yOq-Ra-vux"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -218,6 +221,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDW-wX-o09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1807" y="-585"/>
+        </scene>
+        <!--Album Details Screen-->
+        <scene sceneID="cVP-nk-CqU">
+            <objects>
+                <viewController storyboardIdentifier="AlbumDetailsScreen" id="5hC-Le-gd9" customClass="AlbumDetailsScreen" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vka-cc-Osa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bY3-eL-aVl">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="vVq-PA-FMA">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sWw-Te-knV">
+                                        <rect key="frame" x="10" y="10" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xll-4p-PjG">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IKV-jV-JzS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bY3-eL-aVl" firstAttribute="leading" secondItem="IKV-jV-JzS" secondAttribute="leading" id="0kZ-kY-g3w"/>
+                            <constraint firstItem="IKV-jV-JzS" firstAttribute="trailing" secondItem="bY3-eL-aVl" secondAttribute="trailing" id="Ajq-K8-9bE"/>
+                            <constraint firstItem="bY3-eL-aVl" firstAttribute="top" secondItem="IKV-jV-JzS" secondAttribute="top" id="t9W-HL-5Bv"/>
+                            <constraint firstItem="IKV-jV-JzS" firstAttribute="bottom" secondItem="bY3-eL-aVl" secondAttribute="bottom" id="zIl-bG-qMM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CAN-3e-0iO"/>
+                    <connections>
+                        <outlet property="tracksCollectionView" destination="bY3-eL-aVl" id="c20-X8-nWO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdG-Lu-YCo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2627" y="-585"/>
         </scene>
         <!--Categories-->
         <scene sceneID="yWG-Zm-DVu">

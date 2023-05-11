@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var artistBGImageView: UIImageView!
     @IBOutlet weak var artistFGImageView: UIImageView!
@@ -100,6 +100,20 @@ class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate,UICollecti
             return CGSize(width: collectionView.bounds.width - 2 * Constants.SPACING_FOR_GENRE_CELLS, height: collectionView.bounds.height / 4)
         } else {
             return CGSize(width: 0, height: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "albumToAlbumDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "albumToAlbumDetails" {
+            if let indexPaths = albumsCollectionView.indexPathsForSelectedItems, let indexPath = indexPaths.first {
+                let selectedAlbum = albumList?[indexPath.row]
+                let albumDetailsScreen = segue.destination as! AlbumDetailsScreen
+                albumDetailsScreen.innerAlbum = selectedAlbum?.innerAlbum
+            }
         }
     }
 }

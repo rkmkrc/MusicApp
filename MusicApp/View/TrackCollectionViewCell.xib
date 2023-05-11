@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TrackCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="464" height="223"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="464" height="223"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vPF-iO-7qC">
+                        <rect key="frame" x="0.0" y="0.0" width="223" height="223"/>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yrz-pW-Qbw">
+                        <rect key="frame" x="223" y="0.0" width="241" height="223"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-Fp-Wy8">
+                                <rect key="frame" x="0.0" y="0.0" width="241" height="68.666666666666671"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sqb-J1-oPp">
+                                <rect key="frame" x="0.0" y="68.666666666666671" width="241" height="103.00000000000001"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znM-87-Rjv">
+                                <rect key="frame" x="0.0" y="171.66666666666666" width="241" height="51.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="znM-87-Rjv" firstAttribute="height" secondItem="sqb-J1-oPp" secondAttribute="height" multiplier="1:2" id="QE8-Aw-fve"/>
+                            <constraint firstItem="Ily-Fp-Wy8" firstAttribute="height" secondItem="sqb-J1-oPp" secondAttribute="height" multiplier="2:3" id="bPx-co-eVy"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vPF-iO-7qC" secondAttribute="bottom" id="49j-Sx-sg9"/>
+                <constraint firstAttribute="bottom" secondItem="yrz-pW-Qbw" secondAttribute="bottom" id="Aec-XN-Dkk"/>
+                <constraint firstItem="vPF-iO-7qC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JV7-49-KEF"/>
+                <constraint firstItem="yrz-pW-Qbw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MSY-8l-cYH"/>
+                <constraint firstItem="vPF-iO-7qC" firstAttribute="width" secondItem="yrz-pW-Qbw" secondAttribute="height" multiplier="1:1" id="NeB-k8-vU2"/>
+                <constraint firstItem="yrz-pW-Qbw" firstAttribute="leading" secondItem="vPF-iO-7qC" secondAttribute="trailing" id="aTh-CE-xjA"/>
+                <constraint firstAttribute="trailing" secondItem="yrz-pW-Qbw" secondAttribute="trailing" id="baH-H2-TaU"/>
+                <constraint firstItem="vPF-iO-7qC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yNi-H4-pas"/>
+            </constraints>
+            <size key="customSize" width="464" height="223"/>
+            <connections>
+                <outlet property="favoriteButton" destination="Ily-Fp-Wy8" id="X47-Oy-9bM"/>
+                <outlet property="trackDurationLabel" destination="znM-87-Rjv" id="cXb-Ef-tMh"/>
+                <outlet property="trackImageView" destination="vPF-iO-7qC" id="ulM-k8-umG"/>
+                <outlet property="trackNameLabel" destination="sqb-J1-oPp" id="br9-fe-94e"/>
+            </connections>
+            <point key="canvasLocation" x="146.56488549618319" y="11.619718309859156"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+    </resources>
+</document>
