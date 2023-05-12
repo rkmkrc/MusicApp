@@ -17,6 +17,7 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
             tracksCollectionView.reloadData()
         }
     }
+    let audioPlayer = AudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,12 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
             return CGSize(width: collectionView.bounds.width - 2 * Constants.SPACING_FOR_GENRE_CELLS, height: collectionView.bounds.height / 5)
         } else {
             return CGSize(width: 0, height: 0)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let urlString = trackList?[indexPath.row].preview {
+            audioPlayer.playFromURL(urlString: urlString)
         }
     }
 }

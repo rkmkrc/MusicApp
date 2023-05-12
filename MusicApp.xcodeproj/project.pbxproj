@@ -34,6 +34,7 @@
 		7D9458842A0C2FA800052A0E /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9458822A0C2FA800052A0E /* AlbumCollectionViewCell.swift */; };
 		7D9458852A0C2FA800052A0E /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9458832A0C2FA800052A0E /* AlbumCollectionViewCell.xib */; };
 		7D9458872A0C321600052A0E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9458862A0C321600052A0E /* Album.swift */; };
+		7D9EA4C12A0EBB430048334A /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EA4C02A0EBB430048334A /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		7D9458822A0C2FA800052A0E /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D9458832A0C2FA800052A0E /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D9458862A0C321600052A0E /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		7D9EA4C02A0EBB430048334A /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				7D3A0E242A0AAFBE00178325 /* Artist.swift */,
 				7D9458862A0C321600052A0E /* Album.swift */,
 				7D17B3D12A0D7BA200B3623C /* Track.swift */,
+				7D9EA4C02A0EBB430048334A /* AudioPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				7D8CE3662A094EE6001B39CF /* Network.swift in Sources */,
 				7D8CE3302A0941F5001B39CF /* SceneDelegate.swift in Sources */,
 				7D8CE3382A0941F5001B39CF /* MusicApp.xcdatamodeld in Sources */,
+				7D9EA4C12A0EBB430048334A /* AudioPlayer.swift in Sources */,
 				7D8CE3682A095833001B39CF /* MyError.swift in Sources */,
 				7D17B3D22A0D7BA200B3623C /* Track.swift in Sources */,
 				7D8CE3642A094DFA001B39CF /* Genre.swift in Sources */,

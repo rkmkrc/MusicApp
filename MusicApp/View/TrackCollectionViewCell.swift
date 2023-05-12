@@ -22,7 +22,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
         favoriteButton.setTitle("", for: .normal)
         trackNameLabel.text = track?.title
         if let duration = track?.duration {
-            trackDurationLabel.text = String(describing: duration)
+            trackDurationLabel.text = secondsToMinutesAndSeconds(seconds: duration)
         }
         let imageUrl = URL(string: innerAlbum?.pictureLink ?? "")
         trackImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in

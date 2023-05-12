@@ -18,3 +18,10 @@ struct Constants {
     static let GENRE_CELL_RADIUS = 10.0
     static let BORDER_WIDTH = 1.0
 }
+
+func secondsToMinutesAndSeconds(seconds: Int) -> String {
+    let minutes = seconds / 60
+    let remainingSeconds = seconds % 60
+    return String("\(minutes):\(remainingSeconds)\"")
+}
+
