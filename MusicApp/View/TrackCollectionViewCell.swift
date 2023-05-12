@@ -13,12 +13,15 @@ class TrackCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var trackDurationLabel: UILabel!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var trackImageView: UIImageView!
+    var favoriteManager = FavoriteManager()
+    var track: Track?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupCell(track: Track?, innerAlbum: InnerAlbum?) {
+    func setupCell(innerAlbum: InnerAlbum?) {
+        setupFavoriteButton(track: track)
         favoriteButton.setTitle("", for: .normal)
         trackNameLabel.text = track?.title
         if let duration = track?.duration {
@@ -37,11 +40,33 @@ class TrackCollectionViewCell: UICollectionViewCell {
         })
     }
     
+    @IBAction func tapOnFavoriteButton(_ sender: UIButton) {
+        if let track = self.track {
+            if favoriteManager.isInFavorites(track: track) {
+                favoriteManager.deleteFavoriteTrack(track: track)
+                sender.tintColor = .systemGray
+            } else {
+                favoriteManager.addToFavorites(track: track)
+                sender.tintColor = .red
+            }
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.borderColor = UIColor.black.withAlphaComponent(0.3).cgColor
         layer.borderWidth = Constants.BORDER_WIDTH
         layer.cornerRadius = Constants.GENRE_CELL_RADIUS
         layer.masksToBounds = true
+    }
+    
+    func setupFavoriteButton(track: Track?) {
+        if let track = track {
+            if favoriteManager.isInFavorites(track: track) {
+                favoriteButton.tintColor = .red
+            } else {
+                favoriteButton.tintColor = .systemGray
+            }
+        }
     }
 }
