@@ -9,6 +9,7 @@ import Foundation
 
 struct Constants {
     static let GENRE_NAME = "GenreName"
+    static let FAVORITE_SCREEN_TITLE = "Favorites"
     static let GENRES_TITLE = "Genres"
     static let ARTISTS_TITLE = "Artists"
     static let ALBUM_DATE = "01.01.2023"

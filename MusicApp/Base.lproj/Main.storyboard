@@ -31,14 +31,45 @@
         <!--Favorites-->
         <scene sceneID="JL1-br-Cvr">
             <objects>
-                <viewController id="ZK5-Np-fny" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteScreen" id="ZK5-Np-fny" customClass="FavoriteScreen" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ahU-8t-4Hn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iPj-sJ-lIJ">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YDP-CT-Tcm">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qBV-1g-n87">
+                                        <rect key="frame" x="10" y="10" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ahm-CE-hyk">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jcc-jp-oUO"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iPj-sJ-lIJ" firstAttribute="leading" secondItem="Jcc-jp-oUO" secondAttribute="leading" id="WS5-nO-5Ab"/>
+                            <constraint firstItem="Jcc-jp-oUO" firstAttribute="bottom" secondItem="iPj-sJ-lIJ" secondAttribute="bottom" id="aiQ-ta-Ttv"/>
+                            <constraint firstItem="Jcc-jp-oUO" firstAttribute="trailing" secondItem="iPj-sJ-lIJ" secondAttribute="trailing" id="f63-qH-Uul"/>
+                            <constraint firstItem="iPj-sJ-lIJ" firstAttribute="top" secondItem="Jcc-jp-oUO" secondAttribute="top" id="vAY-IU-LoU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="bgX-bg-AJE"/>
+                    <connections>
+                        <outlet property="favoriteTracksCollectionView" destination="iPj-sJ-lIJ" id="gYk-ff-gni"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1q-3U-Qfj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,13 +17,15 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
             tracksCollectionView.reloadData()
         }
     }
-    let audioPlayer = AudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = innerAlbum?.title
         setupCollectionView()
         getAlbumDetails()
+        NotificationCenter.default.addObserver(self, selector: #selector(
+            self.reloadMyTable(notification:)), name: Notification.Name("reloadTable"),
+                                               object: nil)
     }
     
     func setupCollectionView() {
@@ -74,7 +76,11 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let urlString = trackList?[indexPath.row].preview {
-            audioPlayer.playFromURL(urlString: urlString)
+            AudioManager.shared.playFromURL(urlString: urlString)
         }
+    }
+    
+    @objc func reloadMyTable(notification: Notification) {
+        self.tracksCollectionView.reloadData()
     }
 }

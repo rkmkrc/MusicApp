@@ -49,6 +49,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
                 favoriteManager.addToFavorites(track: track)
                 sender.tintColor = .red
             }
+            NotificationCenter.default.post(name: Notification.Name("reloadTable"), object: nil)
         }
     }
     
