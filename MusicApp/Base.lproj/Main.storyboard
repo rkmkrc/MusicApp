@@ -21,14 +21,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="Z1P-Zf-mQv" kind="relationship" relationship="viewControllers" id="trv-f9-ve1"/>
-                        <segue destination="ZK5-Np-fny" kind="relationship" relationship="viewControllers" id="gDN-rq-nDJ"/>
+                        <segue destination="xkP-EN-CRO" kind="relationship" relationship="viewControllers" id="gDN-rq-nDJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCr-3n-y2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1657" y="-244"/>
         </scene>
-        <!--Favorites-->
+        <!--Favorite Screen-->
         <scene sceneID="JL1-br-Cvr">
             <objects>
                 <viewController storyboardIdentifier="FavoriteScreen" id="ZK5-Np-fny" customClass="FavoriteScreen" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iPj-sJ-lIJ">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YDP-CT-Tcm">
                                     <size key="itemSize" width="128" height="128"/>
@@ -66,14 +66,14 @@
                             <constraint firstItem="iPj-sJ-lIJ" firstAttribute="top" secondItem="Jcc-jp-oUO" secondAttribute="top" id="vAY-IU-LoU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="bgX-bg-AJE"/>
+                    <navigationItem key="navigationItem" id="GUv-FD-ZdU"/>
                     <connections>
                         <outlet property="favoriteTracksCollectionView" destination="iPj-sJ-lIJ" id="gYk-ff-gni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1q-3U-Qfj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-709" y="89"/>
+            <point key="canvasLocation" x="217.55725190839695" y="88.732394366197184"/>
         </scene>
         <!--Categories-->
         <scene sceneID="tne-QT-ifu">
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbp-kM-nTU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3582" y="-117"/>
+            <point key="canvasLocation" x="4507.6335877862593" y="-117.60563380281691"/>
         </scene>
         <!--Categories-->
         <scene sceneID="yWG-Zm-DVu">
@@ -333,6 +333,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c35-G7-P50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-709.16030534351137" y="-585.21126760563379"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="t2a-wi-yaq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xkP-EN-CRO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.fill" catalog="system" id="bgX-bg-AJE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LXD-TF-1FR">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZK5-Np-fny" kind="relationship" relationship="rootViewController" id="OeZ-Lx-ArB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyr-jn-8eC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-709.16030534351137" y="88.732394366197184"/>
         </scene>
     </scenes>
     <resources>

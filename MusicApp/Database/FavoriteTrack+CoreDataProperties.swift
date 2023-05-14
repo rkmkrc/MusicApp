@@ -2,7 +2,7 @@
 //  FavoriteTrack+CoreDataProperties.swift
 //  MusicApp
 //
-//  Created by Erkam Karaca on 13.05.2023.
+//  Created by Erkam Karaca on 14.05.2023.
 //
 //
 
@@ -20,6 +20,7 @@ extension FavoriteTrack {
     @NSManaged public var id: Int64
     @NSManaged public var preview: String?
     @NSManaged public var title: String?
+    @NSManaged public var pictureLink: String?
 
 }
 

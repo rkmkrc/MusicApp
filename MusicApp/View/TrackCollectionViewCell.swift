@@ -15,19 +15,20 @@ class TrackCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var trackImageView: UIImageView!
     var favoriteManager = FavoriteManager()
     var track: Track?
+    var innerAlbum: InnerAlbum?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setupCell(innerAlbum: InnerAlbum?) {
+    func setupCell(pictureLink: String?) {
         setupFavoriteButton(track: track)
         favoriteButton.setTitle("", for: .normal)
         trackNameLabel.text = track?.title
         if let duration = track?.duration {
             trackDurationLabel.text = secondsToMinutesAndSeconds(seconds: duration)
         }
-        let imageUrl = URL(string: innerAlbum?.pictureLink ?? "")
+        let imageUrl = URL(string: (pictureLink ?? (self.innerAlbum?.pictureLink ?? "")))
         trackImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in
             switch result {
             case .success(_):
@@ -46,7 +47,8 @@ class TrackCollectionViewCell: UICollectionViewCell {
                 favoriteManager.deleteFavoriteTrack(track: track)
                 sender.tintColor = .systemGray
             } else {
-                favoriteManager.addToFavorites(track: track)
+                print(self.innerAlbum?.pictureLink)
+                favoriteManager.addToFavorites(track: track, pictureLink: self.innerAlbum?.pictureLink)
                 sender.tintColor = .red
             }
             NotificationCenter.default.post(name: Notification.Name("reloadTable"), object: nil)

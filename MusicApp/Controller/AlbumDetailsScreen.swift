@@ -60,7 +60,8 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
         if let track = trackList?[indexPath.row] {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollectionViewCell", for: indexPath) as! TrackCollectionViewCell
             cell.track = track
-            cell.setupCell(innerAlbum: self.innerAlbum)
+            cell.innerAlbum = innerAlbum
+            cell.setupCell(pictureLink: innerAlbum?.pictureLink)
             return cell
         }
         return UICollectionViewCell()

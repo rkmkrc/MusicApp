@@ -12,7 +12,7 @@ import UIKit
 struct FavoriteManager {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func addToFavorites(track: Track) {
+    func addToFavorites(track: Track, pictureLink: String?) {
         
         if isInFavorites(track: track) {return}
         // Get the managed object context from your Core Data stack
@@ -26,6 +26,7 @@ struct FavoriteManager {
         favoriteTrack.title = track.title
         favoriteTrack.duration = Int64(track.duration ?? 0)
         favoriteTrack.preview = track.preview
+        favoriteTrack.pictureLink = pictureLink ?? ""
         
         // Save the context to persist the changes
         do {

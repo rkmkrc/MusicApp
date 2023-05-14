@@ -45,9 +45,10 @@ class FavoriteScreen: UIViewController, UICollectionViewDataSource, UICollection
             let intID: Int? = Int(int64ID)
             let int64Dur: Int64 = favoriteTrack.duration
             let intDur: Int? = Int(int64Dur)
+            let pictureLink: String? = favoriteTrack.pictureLink
             let track = Track(id: intID, title: favoriteTrack.title, duration: intDur, preview: favoriteTrack.preview)
             cell.track = track
-            cell.setupCell(innerAlbum: nil)
+            cell.setupCell(pictureLink: pictureLink)
             return cell
         }
         return UICollectionViewCell()
