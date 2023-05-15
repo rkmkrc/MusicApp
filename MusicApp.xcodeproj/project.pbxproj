@@ -14,7 +14,6 @@
 		7D3A0E212A0A9F1300178325 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7D3A0E202A0A9F1300178325 /* Kingfisher */; };
 		7D3A0E232A0AAF6700178325 /* ArtistsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3A0E222A0AAF6700178325 /* ArtistsScreen.swift */; };
 		7D3A0E252A0AAFBE00178325 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3A0E242A0AAFBE00178325 /* Artist.swift */; };
-		7D5259EE2A0EEA2900074C36 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5259ED2A0EEA2900074C36 /* Test.swift */; };
 		7D8CE32E2A0941F5001B39CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CE32D2A0941F5001B39CF /* AppDelegate.swift */; };
 		7D8CE3302A0941F5001B39CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CE32F2A0941F5001B39CF /* SceneDelegate.swift */; };
 		7D8CE3322A0941F5001B39CF /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8CE3312A0941F5001B39CF /* MainScreen.swift */; };
@@ -66,7 +65,6 @@
 		7D2A8F512A0D815B0065E24F /* TrackCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D3A0E222A0AAF6700178325 /* ArtistsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsScreen.swift; sourceTree = "<group>"; };
 		7D3A0E242A0AAFBE00178325 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		7D5259ED2A0EEA2900074C36 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7D8CE32A2A0941F5001B39CF /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8CE32D2A0941F5001B39CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D8CE32F2A0941F5001B39CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,13 +145,10 @@
 		7D8CE32C2A0941F5001B39CF /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
-				7D9EA4CA2A0EDC740048334A /* Database */,
 				7D8CE3622A0942B4001B39CF /* Model */,
 				7D8CE3612A0942AE001B39CF /* View */,
 				7D8CE3602A0942A3001B39CF /* Controller */,
-				7D8CE3332A0941F5001B39CF /* Main.storyboard */,
-				7D8CE3392A0941F6001B39CF /* Assets.xcassets */,
-				7D8CE33B2A0941F6001B39CF /* LaunchScreen.storyboard */,
+				7D9EA4CA2A0EDC740048334A /* Database */,
 				7D8CE33E2A0941F6001B39CF /* Info.plist */,
 			);
 			path = MusicApp;
@@ -185,7 +180,6 @@
 				7D3A0E222A0AAF6700178325 /* ArtistsScreen.swift */,
 				7D9458802A0C29CC00052A0E /* ArtistDetailsScreen.swift */,
 				7D17B3CF2A0D76D100B3623C /* AlbumDetailsScreen.swift */,
-				7D5259ED2A0EEA2900074C36 /* Test.swift */,
 				7D8DE7882A0EFBD200A50C1A /* FavoriteScreen.swift */,
 			);
 			path = Controller;
@@ -194,6 +188,9 @@
 		7D8CE3612A0942AE001B39CF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D8CE3332A0941F5001B39CF /* Main.storyboard */,
+				7D8CE3392A0941F6001B39CF /* Assets.xcassets */,
+				7D8CE33B2A0941F6001B39CF /* LaunchScreen.storyboard */,
 				7D8CE3702A099023001B39CF /* GenresCollectionViewCell.swift */,
 				7D8CE3712A099023001B39CF /* GenresCollectionViewCell.xib */,
 				7D9458822A0C2FA800052A0E /* AlbumCollectionViewCell.swift */,
@@ -374,7 +371,6 @@
 				7D3A0E232A0AAF6700178325 /* ArtistsScreen.swift in Sources */,
 				7D9458842A0C2FA800052A0E /* AlbumCollectionViewCell.swift in Sources */,
 				7D9458812A0C29CC00052A0E /* ArtistDetailsScreen.swift in Sources */,
-				7D5259EE2A0EEA2900074C36 /* Test.swift in Sources */,
 				7D8CE3322A0941F5001B39CF /* MainScreen.swift in Sources */,
 				7DE2EE8D2A11705A0090D957 /* FavoriteTrack+CoreDataClass.swift in Sources */,
 				7D8CE3722A099023001B39CF /* GenresCollectionViewCell.swift in Sources */,

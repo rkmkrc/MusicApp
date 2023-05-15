@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class GenresCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreImageView: UIImageView!
     
@@ -20,12 +20,12 @@ class GenresCollectionViewCell: UICollectionViewCell {
     func setupCell(item: MyProtocol) {
         nameLabel.text = item.name
         let imageUrl = URL(string: item.pictureLink ?? "")
-        genreImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in
+        genreImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: Constants.GENRE_PLACEHOLDER_IMAGE), options: [.transition(.fade(0.2))], completionHandler: { result in
             switch result {
             case .success(_):
                 break
             case .failure(_):
-                self.genreImageView.image = UIImage(named: "personPlaceholder.png")
+                self.genreImageView.image = UIImage(named: Constants.PERSON_PLACEHOLDER_IMAGE)
                 print(MyError.IMAGE_DOWNLOAD_ERROR)
                 break
             }
@@ -39,22 +39,5 @@ class GenresCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = Constants.GENRE_CELL_RADIUS
         layer.masksToBounds = true
     }
-
 }
-/*
- if let genre = genre {
-     nameLabel.text = genre.name
-     let imageUrl = URL(string: genre.pictureLink ?? "")
-     genreImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in
-         switch result {
-         case .success(_):
-             break
-         case .failure(_):
-             self.genreImageView.image = UIImage(named: "genrePlaceholderImage.png")
-             print(MyError.IMAGE_DOWNLOAD_ERROR)
-             break
-         }
-     })
 
- }
- */

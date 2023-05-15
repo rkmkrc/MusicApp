@@ -22,18 +22,17 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         albumNameLabel.text = innerAlbum?.title
         albumReleaseDateLabel.text = Constants.ALBUM_DATE
         let imageUrl = URL(string: innerAlbum?.pictureLink ?? "")
-        albumImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in
+        albumImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: Constants.GENRE_PLACEHOLDER_IMAGE), options: [.transition(.fade(0.2))], completionHandler: { result in
             switch result {
             case .success(_):
                 break
             case .failure(_):
-                self.albumImageView.image = UIImage(named: "genrePlaceholderImage.png")
+                self.albumImageView.image = UIImage(named: Constants.GENRE_PLACEHOLDER_IMAGE)
                 print(MyError.IMAGE_DOWNLOAD_ERROR)
                 break
             }
         })
     }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.borderColor = UIColor.black.withAlphaComponent(0.3).cgColor

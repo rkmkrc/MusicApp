@@ -41,19 +41,14 @@ class FavoriteScreen: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let favoriteTrack = favoriteTracksList?[indexPath.row] {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollectionViewCell", for: indexPath) as! TrackCollectionViewCell
-            let int64ID: Int64 = favoriteTrack.id
-            let intID: Int? = Int(int64ID)
-            let int64Dur: Int64 = favoriteTrack.duration
-            let intDur: Int? = Int(int64Dur)
-            let pictureLink: String? = favoriteTrack.pictureLink
-            let track = Track(id: intID, title: favoriteTrack.title, duration: intDur, preview: favoriteTrack.preview)
+            let (track, pictureLink) = favoriteManager.fromFavoriteTrackToTrack(favoriteTrack: favoriteTrack)
             cell.track = track
             cell.setupCell(pictureLink: pictureLink)
             return cell
         }
         return UICollectionViewCell()
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let collectionView = self.favoriteTracksCollectionView{
             return CGSize(width: collectionView.bounds.width - 2 * Constants.SPACING_FOR_GENRE_CELLS, height: collectionView.bounds.height / 5)

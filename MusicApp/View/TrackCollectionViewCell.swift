@@ -29,12 +29,12 @@ class TrackCollectionViewCell: UICollectionViewCell {
             trackDurationLabel.text = secondsToMinutesAndSeconds(seconds: duration)
         }
         let imageUrl = URL(string: (pictureLink ?? (self.innerAlbum?.pictureLink ?? "")))
-        trackImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "genrePlaceholderImage.png"), options: [.transition(.fade(0.2))], completionHandler: { result in
+        trackImageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: Constants.GENRE_PLACEHOLDER_IMAGE), options: [.transition(.fade(0.2))], completionHandler: { result in
             switch result {
             case .success(_):
                 break
             case .failure(_):
-                self.trackImageView.image = UIImage(named: "genrePlaceholderImage.png")
+                self.trackImageView.image = UIImage(named: Constants.GENRE_PLACEHOLDER_IMAGE)
                 print(MyError.IMAGE_DOWNLOAD_ERROR)
                 break
             }
@@ -47,7 +47,6 @@ class TrackCollectionViewCell: UICollectionViewCell {
                 favoriteManager.deleteFavoriteTrack(track: track)
                 sender.tintColor = .systemGray
             } else {
-                print(self.innerAlbum?.pictureLink)
                 favoriteManager.addToFavorites(track: track, pictureLink: self.innerAlbum?.pictureLink)
                 sender.tintColor = .red
             }

@@ -99,6 +99,5 @@ class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
             }
         }
     }
-    
 }
 

@@ -13,6 +13,8 @@ struct Constants {
     static let GENRES_TITLE = "Genres"
     static let ARTISTS_TITLE = "Artists"
     static let ALBUM_DATE = "01.01.2023"
+    static let GENRE_PLACEHOLDER_IMAGE = "genrePlaceholderImage.png"
+    static let PERSON_PLACEHOLDER_IMAGE = "genrePlaceholderImage.png"
     static let DEFAULT_NUM_OF_CELLS = 5
     static let NUMBER_OF_ITEMS_PER_ROW_GENRES = 2.0
     static let SPACING_FOR_GENRE_CELLS = 10.0
