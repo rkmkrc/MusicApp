@@ -48,7 +48,7 @@ class FavoriteScreen: UIViewController, UICollectionViewDataSource, UICollection
         }
         return UICollectionViewCell()
     }
- 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let collectionView = self.favoriteTracksCollectionView{
             return CGSize(width: collectionView.bounds.width - 2 * Constants.SPACING_FOR_GENRE_CELLS, height: collectionView.bounds.height / 5)

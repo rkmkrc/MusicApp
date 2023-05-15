@@ -11,6 +11,7 @@ import UIKit
 class ArtistsScreen: UIViewController, UINavigationControllerDelegate, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet weak var artistsCollectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var urlComponents = URLComponents()
     var genre: Genre?
     var artistList: [Artist]? = [] {
@@ -25,6 +26,16 @@ class ArtistsScreen: UIViewController, UINavigationControllerDelegate, UICollect
         setupCollectionView()
         initializeNetwork()
         getArtists()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.startAnimating()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        spinner.stopAnimating()
     }
     
     func setupCollectionView() {
@@ -53,6 +64,8 @@ class ArtistsScreen: UIViewController, UINavigationControllerDelegate, UICollect
                 DispatchQueue.main.async {
                     self.artistList = artists.data
                     self.artistsCollectionView.reloadData()
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
                 }
             case .failure(let error):
                 print(MyError.DATA_ERROR + " \(error)")

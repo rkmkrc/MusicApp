@@ -92,6 +92,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="4wJ-yh-I6G">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GenresCollectionViewCell" id="Bec-JV-5jd" customClass="GenresCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="128" height="128"/>
@@ -119,6 +123,7 @@
                     <navigationItem key="navigationItem" id="xoh-ja-jGv"/>
                     <connections>
                         <outlet property="genresCollectionView" destination="8Qq-9Z-j25" id="Wif-WN-vqp"/>
+                        <outlet property="spinner" destination="4wJ-yh-I6G" id="cfB-RL-odZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -142,6 +147,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="1Wg-Ev-9aJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GenresCollectionViewCell" id="nqg-lq-fYP" customClass="GenresCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="128" height="128"/>
@@ -169,6 +178,7 @@
                     <navigationItem key="navigationItem" id="qT3-qw-WEF"/>
                     <connections>
                         <outlet property="artistsCollectionView" destination="QKb-su-Npc" id="fmA-8Z-e7V"/>
+                        <outlet property="spinner" destination="1Wg-Ev-9aJ" id="bP2-0g-4kP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jco-ea-7pd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -214,6 +224,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="d00-XV-DeZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="443"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCollectionViewCell" id="eU2-xy-Jsf" customClass="AlbumCollectionViewCell" customModule="MusicApp" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="128" height="128"/>
@@ -247,6 +261,7 @@
                         <outlet property="albumsCollectionView" destination="B7J-Y8-Xhg" id="nMu-pt-VZk"/>
                         <outlet property="artistBGImageView" destination="81J-To-Erv" id="rhV-mf-9fj"/>
                         <outlet property="artistFGImageView" destination="8Dh-f2-rWt" id="pvE-tF-Eem"/>
+                        <outlet property="spinner" destination="d00-XV-DeZ" id="aJc-Hl-s4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDW-wX-o09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -270,6 +285,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="NGs-B1-yko">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCollectionViewCell" id="sWw-Te-knV">
                                         <rect key="frame" x="10" y="10" width="128" height="128"/>
@@ -293,6 +312,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CAN-3e-0iO"/>
                     <connections>
+                        <outlet property="spinner" destination="NGs-B1-yko" id="fJW-m0-xoC"/>
                         <outlet property="tracksCollectionView" destination="bY3-eL-aVl" id="c20-X8-nWO"/>
                     </connections>
                 </viewController>

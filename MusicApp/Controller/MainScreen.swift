@@ -10,6 +10,7 @@ import UIKit
 class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
     @IBOutlet weak var genresCollectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var urlComponents = URLComponents()
     var genreList: [Genre]? = [] {
         didSet {
@@ -24,6 +25,16 @@ class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         initializeNetwork()
         getGenres()
         navigationController?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.startAnimating()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        spinner.stopAnimating()
     }
     
     func setupCollectionView() {
@@ -51,6 +62,8 @@ class MainScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                 DispatchQueue.main.async {
                     self.genreList = genres.data
                     self.genresCollectionView.reloadData()
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
                 }
             case .failure(let error):
                 print(MyError.DATA_ERROR + " \(error)")

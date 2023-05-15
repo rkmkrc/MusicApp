@@ -11,6 +11,7 @@ import UIKit
 class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var tracksCollectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var innerAlbum: InnerAlbum?
     var trackList: [Track]? = [] {
         didSet {
@@ -26,6 +27,16 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
         NotificationCenter.default.addObserver(self, selector: #selector(
             self.reloadMyTable(notification:)), name: Notification.Name("reloadTable"),
                                                object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.startAnimating()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        spinner.stopAnimating()
     }
     
     func setupCollectionView() {
@@ -45,6 +56,8 @@ class AlbumDetailsScreen: UIViewController, UICollectionViewDelegate, UICollecti
                 DispatchQueue.main.async {
                     self.trackList = trackCollection.data
                     self.tracksCollectionView.reloadData()
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
                 }
             case .failure(let error):
                 print(MyError.DATA_ERROR + " \(error)")

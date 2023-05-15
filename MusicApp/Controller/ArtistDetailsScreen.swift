@@ -14,7 +14,7 @@ class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var artistBGImageView: UIImageView!
     @IBOutlet weak var artistFGImageView: UIImageView!
     @IBOutlet weak var albumsCollectionView: UICollectionView!
-    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     var urlComponents = URLComponents()
     var artist: Artist?
     var albumList: [Album]? = [] {
@@ -29,6 +29,16 @@ class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate, UICollect
         getAlbums()
         setImage()
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        spinner.startAnimating()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        spinner.stopAnimating()
     }
     
     func setImage() {
@@ -75,6 +85,9 @@ class ArtistDetailsScreen: UIViewController, UICollectionViewDelegate, UICollect
                 DispatchQueue.main.async {
                     self.albumList = albumsCollection.data
                     self.albumsCollectionView.reloadData()
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
+                    
                 }
             case .failure(let error):
                 print(MyError.DATA_ERROR + " \(error)")
