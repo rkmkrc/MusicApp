@@ -6,19 +6,19 @@ This project enables you to create a list of favorite songs. It fetches data fro
 * Generic function is used to fetch and decode the data.
 
 ### Home Screen
-* This screenshot shows the main screen of app, displays genres.
+* This screen shows the main screen of app, displays genres.
 
 ### Artists Screen
-* This screenshot shows the artists of previously selected genre.
+* This screen shows the artists of previously selected genre.
 
 ### Albums Screen
-* This screenshot shows the albums of previously selected artist.
+* This screen shows the albums of previously selected artist.
 
 ### Album Details Screen
-* This screenshot shows the songs of previously selected album.
+* This screen shows the songs of previously selected album.
 
 ### Favorite Screen
-* This screenshot shows favorite songs that user chose before.
+* This screen shows favorite songs that user chose before.
 
 ## Screenshots:
 <table>
